@@ -48,8 +48,8 @@ printf("%d out of ", good);
 printf("%d", comm);
 printf("\n\n");
 
-
-snt_match = sm_TM_SNT_match(matchmat, good, truemat, len3, snt, sm_GC, FOCAL_LENGTH, 1, 20, e, snt_out);
+if (good<Nth) 
+    snt_match = sm_TM_SNT_match(matchmat, good, truemat, len3, snt, sm_GC, FOCAL_LENGTH, 1, 20, e, snt_out);
 
 for (i=0; i<snt_match; i++)
     {
