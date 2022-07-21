@@ -15,7 +15,7 @@ bubbleSort3(prevmat_2_raw, N2, 2);
 
 int i=0, j=0, k=0;
 
-while (i<N1 and j<N2)
+while ((i<N1) && (j<N2))
 {
 
         {

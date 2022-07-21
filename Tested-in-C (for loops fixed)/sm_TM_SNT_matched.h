@@ -22,17 +22,17 @@ int j=0;
 int i=0;
 for (j=0; j < N; j++)
 {
-    bool already_matched = false;
+    int already_matched = 0;
 
     for (i=0; i < L; i++)
     {
-        if ((sm_TM_RBM_matchmat[i][0] == fe_output[j][0]) and (sm_TM_RBM_matchmat[i][1] == fe_output[j][1]))
+        if ((sm_TM_RBM_matchmat[i][0] == fe_output[j][0]) && (sm_TM_RBM_matchmat[i][1] == fe_output[j][1]))
         {
-            already_matched = true;
+            already_matched = 1;
             break;
         }
     }
-    if (not already_matched)
+    if (already_matched==0)
     {
         fe_unmatched[num_unmatched][0] = fe_output[j][0];
         fe_unmatched[num_unmatched][1] = fe_output[j][1];
@@ -45,7 +45,7 @@ for (j=0; j < N; j++)
 int new_matched = 0, running = 0;
 for (running = 0; running < num_unmatched; running++)
 {
-    bool done = false;
+    int done = 0;
     for (i=0; i < L; i++)
     {
         //cout<<endl;
@@ -65,7 +65,7 @@ for (running = 0; running < num_unmatched; running++)
             double q2 = sm_TM_centroid_angdist(x1, y1, x2, y2, sm_TM_CP_F, pixel_size);
             double q = q1 - q2;
 
-            if (q<error and q>(-error))
+            if ((q<error) && (q>(-error)))
             {
                 int new_id = sm_TM_SNT[curr_ref_star-1][j];
                 for (int i=0; i<new_matched; i++)
@@ -76,13 +76,13 @@ for (running = 0; running < num_unmatched; running++)
                 sm_TM_SNT_output[new_matched][1] = fe_unmatched[running][1];
 
                 new_matched++;
-                done = true;
+                done = 1;
             }
             j++;
-            if (done) break;
+            if (done==1) break;
 
         }
-        if (done) break;
+        if (done==1) break;
     }
 }
 

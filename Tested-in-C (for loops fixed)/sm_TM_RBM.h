@@ -9,8 +9,8 @@ int sm_TM_RBM (double sm_TM_RBM_predmat[][3],
                 double sm_TM_RBM_truemat[][2],
                 int M,
                 double sm_TM_RBM_radius,
-                bool sort_dx,
-                bool sort_before_match,
+                //bool sort_dx,
+                //bool sort_before_match,
                 double sm_TM_RBM_matchmat[][3])
 
 {
@@ -27,7 +27,7 @@ else if (sort_before_match and (not sort_dx))
     bubbleSort2(sm_TM_RBM_truemat, M, 1);
     }
 */
-if (sort_before_match)
+if (1)
 {
 
 int start_ind = 0;

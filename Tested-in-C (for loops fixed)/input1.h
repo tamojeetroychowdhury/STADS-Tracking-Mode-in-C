@@ -15,7 +15,7 @@ double truemat[40][2];
 
 int good = 0;
 int num = 18;
-double r = num*pixel_size;
+double r = 18*4.8e-6;
 
 double e = 0.000001;
 double snt_out[5][3], snt_match=0;

@@ -29,7 +29,7 @@ for (h=0; h<len3; h++) {truemat[h][0] = arr_truemat[h+tot_len3][0];  truemat[h][
 tot_len3 = tot_len3 + len3;
 
 
-good = sm_TM_RBM(pred, comm, truemat, len3, r, true, true, matchmat);
+good = sm_TM_RBM(pred, comm, truemat, len3, r, matchmat);
 
 printf("\n");
 printf("\n");
