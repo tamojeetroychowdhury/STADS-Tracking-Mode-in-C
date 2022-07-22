@@ -25,7 +25,9 @@ int i=0;
 int match = 0;
 match = tracking(prev1, len1, prev2, len2, truemat, len3, new_matched);
 
-for (z=1; z<7; z++)
+int run_lism = 0, run_tm = 0;
+
+for (z=1; z < tot_frames; z++)
 {
     len3 = arr_len3[z];
     for (i=0; i<len2; i++)
@@ -55,11 +57,15 @@ for (z=1; z<7; z++)
     tot_len3 = tot_len3 + len3;
 
     match = tracking(prev1, len1, prev2, len2, truemat, len3, new_matched);
-    if (match < 8)
+    if (match < 4)
     {
         match = lism(truemat, len3, new_matched);
+        run_lism++;
     }
+    else run_tm++;
 
 }
+
+printf("\n\n%d\n%d\n\n",run_lism,run_tm);
 return 0;
 }
