@@ -51,7 +51,7 @@ int sm(long double UIS[][3], int N_i, long double body_vecs_IS[][4], int sm_IS[]
     N_max = 25;
     //printf("Enter the maximum number of matched stars you want :- ");
     //scanf("%d", &N_th);
-    N_th = 8;
+    N_th = 25;
 
     //Constants for validation
     double tol = TOL;

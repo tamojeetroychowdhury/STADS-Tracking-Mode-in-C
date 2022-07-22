@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
+;
 double sm_TM_id_angdist(int id_1,
                         int id_2,
                         double sm_GD_SC[5060][4])

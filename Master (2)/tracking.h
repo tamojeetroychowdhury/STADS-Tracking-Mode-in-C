@@ -8,6 +8,7 @@
 #include "sm_TM_SNT_matched.h"
 //#include "sm_GC.h"
 #include "sm_TM_SNT.h"
+#include "sm_TM_verify.h"
 
 //#include "input1.h"
 //using namespace std;
@@ -19,7 +20,7 @@ int tracking(double prev1[][3],
              int len2,
              double truemat[][2],
              int len3,
-             double final[][3])
+             double finalmat[][3])
 {
 //int tot_len3 = 0;
 //int z =0;
@@ -86,6 +87,7 @@ prev1[i][1] = prev2[i][1];
 prev1[i][2] = prev2[i][2];}
 len1 = len2;
 */
+double final[40][3];
 
 for (i=0; i<good; i++)
 {
@@ -101,7 +103,9 @@ final[i+good][1] = snt_out[i][1];
 final[i+good][2] = snt_out[i][2];
 }
 
-return (good + snt_match);
+int verified = 0;
 
+verified = verify(final, good+snt_match, finalmat, e);
+return verified;
 }
 }

@@ -55,6 +55,10 @@ for (z=1; z<7; z++)
     tot_len3 = tot_len3 + len3;
 
     match = tracking(prev1, len1, prev2, len2, truemat, len3, new_matched);
+    if (match < 8)
+    {
+        match = lism(truemat, len3, new_matched);
+    }
 
 }
 return 0;
