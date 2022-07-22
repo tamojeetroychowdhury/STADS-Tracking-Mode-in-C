@@ -78,7 +78,7 @@ void sm_4_star (double four_stars[][4], long double sm_3D_vecs[][4], int sm_IS[]
         if (k_top <= 0 || k_bot >= 224792)
         // if (k_top < 0 || k_bot >= 188807)
         {
-            printf("bad values : k_bot = %d\t%d, k_top = %d\t%d\n", k_bot, floor((cos(delta)*p[j] - sin_j*sin(delta) - q) / m), k_top, ceil((cos(delta)*p[j] + sin_j*sin(delta) - q) / m));
+            printf("bad values : k_bot = %d\t%f, k_top = %d\t%f\n", k_bot, floor((cos(delta)*p[j] - sin_j*sin(delta) - q) / m), k_top, ceil((cos(delta)*p[j] + sin_j*sin(delta) - q) / m));
             continue;
         }
         else

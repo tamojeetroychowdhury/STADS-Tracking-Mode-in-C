@@ -1,4 +1,5 @@
-#define FOCAL_LENGTH 3.6e-2
+// #define FOCAL_LENGTH 3.6e-2
+//FOCAL_LENGTH already defined in lism constants
 int Nth = 8;
 #define FOV_x 1024
 #define FOV_y 1280

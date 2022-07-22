@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "lism.h"
 #include "tracking.h"
 #include "input1.h"
 
 int main()
 {
+
+len1 = lism(prev1_lism, 26, prev1);
+len2 = lism(prev2_lism, 24, prev2);
 int z=0;
 len3 = arr_len3[z];
 int tot_len3 = len3;

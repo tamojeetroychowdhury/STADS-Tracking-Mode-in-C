@@ -6,7 +6,7 @@
 #include "sm_TM_RBM.h"
 #include "sm_TM_CP_inputsort.h"
 #include "sm_TM_SNT_matched.h"
-#include "sm_GC.h"
+//#include "sm_GC.h"
 #include "sm_TM_SNT.h"
 
 //#include "input1.h"
