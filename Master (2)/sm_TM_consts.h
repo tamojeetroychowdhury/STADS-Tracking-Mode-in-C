@@ -5,5 +5,5 @@ int Nth = 8;
 #define FOV_y 1280
 #define RBM_radius 15
 double pixel_size = 4.8e-6;
-double r = 15*4.8e-6;
+double r = 12*4.8e-6;
 double e = 0.00001;
