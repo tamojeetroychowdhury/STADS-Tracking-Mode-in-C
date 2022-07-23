@@ -1,5 +1,5 @@
 #define FOCAL_LENGTH 0.036
 #define EPSILON 2.22e-15
-#define DELTA 1e-6
+#define DELTA 1e-4
 #define ANG_DIST_TOLERANCE 1.2
 #define VOTE_TOLERANCE 0.5
