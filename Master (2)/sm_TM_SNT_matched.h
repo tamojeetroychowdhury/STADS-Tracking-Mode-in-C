@@ -65,18 +65,25 @@ for (running = 0; running < num_unmatched; running++)
             double q2 = sm_TM_centroid_angdist(x1, y1, x2, y2, sm_TM_CP_F, pixel_size);
             double q = q1 - q2;
 
+            int already_matched_new = 0;
             if ((q<error) && (q>(-error)))
             {
+                int v=0;
                 int new_id = sm_TM_SNT[curr_ref_star-1][j];
-                for (int i=0; i<new_matched; i++)
-                    if (sm_TM_SNT_output[i][2] == new_id) continue;
+                for (v=0; v<new_matched; v++)
+                    if (sm_TM_SNT_output[v][2] == new_id) {already_matched_new = 1; break;}
+                for (v=0; v<L; v++)
+                    if (sm_TM_RBM_matchmat[v][2] == new_id) {already_matched_new = 1; break;}
 
+                if (already_matched_new == 0)           
+                {            
                 sm_TM_SNT_output[new_matched][2] = sm_TM_SNT[curr_ref_star-1][j];
                 sm_TM_SNT_output[new_matched][0] = fe_unmatched[running][0];
                 sm_TM_SNT_output[new_matched][1] = fe_unmatched[running][1];
 
                 new_matched++;
                 done = 1;
+                }
             }
             j++;
             if (done==1) break;

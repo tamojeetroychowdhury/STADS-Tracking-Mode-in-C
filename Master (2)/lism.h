@@ -20,11 +20,13 @@ int lism(double unmatched[][2], int len_unmatched, double matched[][3])
     int lism_matched = 0;
 
     lism_matched = sm(unmatched_input, len_unmatched, body_vecs, sm_IS);
-
+    //double x=0, y=0, f=FOCAL_LENGTH;
+    double mag = 0;
     for (i=0; i<lism_matched; i++)
-    {
-        matched[i][0] = body_vecs[i][1]*FOCAL_LENGTH;
-        matched[i][1] = body_vecs[i][2]*FOCAL_LENGTH;
+    {        
+        mag = FOCAL_LENGTH/body_vecs[i][3];
+        matched[i][0] = body_vecs[i][1]*mag;
+        matched[i][1] = body_vecs[i][2]*mag;
         matched[i][2] = sm_IS[i][1];
     }
     return lism_matched;

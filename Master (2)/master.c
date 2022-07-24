@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "lism.h"
 #include "tracking.h"
-#include "input2.h"
+#include "input1.h"
 
 int main()
 {
@@ -27,7 +27,7 @@ match = tracking(prev1, len1, prev2, len2, truemat, len3, new_matched);
 
 int run_lism = 0, run_tm = 0;
 
-for (z=1; z < 95; z++)
+for (z=1; z < 90; z++)
 {
     len3 = arr_len3[z];
     for (i=0; i<len2; i++)
