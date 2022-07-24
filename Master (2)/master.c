@@ -7,8 +7,8 @@
 int main()
 {
 
-len1 = lism(prev1_lism, 25, prev1);
-len2 = lism(prev2_lism, 21, prev2);
+len1 = lism(prev1_lism, 26, prev1);
+len2 = lism(prev2_lism, 24, prev2);
 int z=0;
 len3 = arr_len3[z];
 int tot_len3 = len3;
@@ -27,7 +27,7 @@ match = tracking(prev1, len1, prev2, len2, truemat, len3, new_matched);
 
 int run_lism = 0, run_tm = 0;
 
-for (z=1; z < 90; z++)
+for (z=1; z < 98; z++)
 {
     len3 = arr_len3[z];
     for (i=0; i<len2; i++)
