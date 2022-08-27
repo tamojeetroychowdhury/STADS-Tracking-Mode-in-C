@@ -1471,7 +1471,7 @@ int tracking(double prev1[][3], //previous frame 1 with x,y and star ID
              int len2, //length of above array
              double trumat[][3], //new image frame with (x,y) of centroids in column 2 and 3
              int len3, //length of above array
-             double sm_TM_verified_output[][3] //TM matched final output
+             double sm_TM_unverified_output[][3] //TM matched final output
              )
 {
 int i = 0, temp = 0;
@@ -1504,7 +1504,7 @@ for (i = 0; i <len3; i++){
     truemat[i][1] = trumat[i][2];
 }
 
-// for(i = 0; i < len3; i++){
+//for(i = 0; i < len3; i++){
 // printf("%f %f\n", truemat[i][0], truemat[i][1]);
 // }
 
@@ -1513,15 +1513,15 @@ double p1[40][3];
 double p2[40][3]; 
 int common_in_both_prev;
 
-// for(i = 0; i < 20; i++){
-// printf("%f %f %d\n", prev1[i][0], prev1[i][1], (int)prev1[i][2]);
-// }
-// printf("%d %d\n", len1, len2);
+ //for(i = 0; i < 20; i++){
+ //printf("%f %f %d\n", prev1[i][0], prev1[i][1], (int)prev1[i][2]);
+ //}
+ //printf("%d %d\n", len1, len2);
 common_in_both_prev = sm_TM_CP_inputsort(prev1, len1, prev2, len2, p1, p2);
 
 // for(i = 0; i < 20; i++){
-// printf("%f %f %d\n", p1[i][0], p1[i][1], (int)p1[i][2]);
-// }
+//printf("%f %f %d\n", p1[i][0], p1[i][1], (int)p1[i][2]);
+//}
 
 // for(i = 0; i < 20; i++){
 // printf("%f %f %d\n", p2[i][0], p2[i][1], (int)p2[i][2]);
@@ -1531,9 +1531,9 @@ common_in_both_prev = sm_TM_CP_inputsort(prev1, len1, prev2, len2, p1, p2);
 double pred[40][3];
 sm_TM_CP(p1, p2, FOCAL_LENGTH, pred, common_in_both_prev, 1);
 
-// for(i = 0; i < 20; i++){
-// printf("%f %f %d\n", pred[i][0], pred[i][1], (int)pred[i][2]);
-// }
+ //for(i = 0; i < 20; i++){
+ //printf("%f %f %d\n", pred[i][0], pred[i][1], (int)pred[i][2]);
+ //}
 
 int num_RBM_matched = 0;
 double matchmat[40][3];
@@ -1546,7 +1546,7 @@ printf("\n");
 int i=0;
 for (i=0; i<num_RBM_matched; i++)
 {
-    printf("%f ", matchmat[i][2]);
+    printf("%d ", (int)matchmat[i][2]);
     printf("%f ", matchmat[i][0]);
     printf("%f\n", matchmat[i][1]);
 }
@@ -1563,7 +1563,7 @@ if (num_RBM_matched<Nth)
 
 for (i=0; i<num_SNT_matched; i++)
     {
-    printf("%f ", snt_out[i][2]);
+    printf("%d ", (int)snt_out[i][2]);
     printf("%f ", snt_out[i][0]);
     printf("%f\n", snt_out[i][1]);
     }
@@ -1598,8 +1598,16 @@ sm_TM_unverified_output[i+num_RBM_matched][1] = snt_out[i][0];
 sm_TM_unverified_output[i+num_RBM_matched][2] = snt_out[i][1];
 }
 
+double sm_TM_verified_output[40][3];
 int num_TM_verified = verify(sm_TM_unverified_output, num_RBM_matched + num_SNT_matched, sm_TM_verified_output, e);
-return num_TM_verified;
+
+
+//for (i=0; i<num_TM_verified; i++)
+//{
+//    printf("%d %f %f\n", (int)sm_TM_verified_output[i][0], sm_TM_verified_output[i][1], sm_TM_verified_output[i][2]);
+//}
+
+return num_RBM_matched + num_SNT_matched;
 }
 }
 

@@ -38,4 +38,4 @@ int Nth = 20;
 #define RBM_radius 15
 double pixel_size = 4.8e-6;
 double r = 17*4.8e-6;
-double e = 0.0001;
+double e = 0.000001;

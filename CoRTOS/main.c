@@ -6,7 +6,7 @@
 #include "input1.h"
 
 //double arr_truemat[2000][2];
-void main()
+int main()
 {
 int i = 0;
 
