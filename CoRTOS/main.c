@@ -5,6 +5,21 @@
 //#include "cortos.h"
 #include "input1.h"
 
+int len1 = 26;
+int len2 = 24;
+int len3 = 23;
+
+double p1[40][3];
+double p2[40][3];
+int comm;
+double pred[40][3];
+double matchmat[40][3];
+
+double truemat[40][3];
+
+
+double snt_out[50][3], snt_match=0;
+
 //double arr_truemat[2000][2];
 int main()
 {
@@ -27,11 +42,13 @@ int tot_len3 = len3;
 double new_matched[40][3];
 match = tracking(prev1, len1, prev2, len2, truemat, len3, new_matched);
 
-printf("%d\n", match);
+
+printf("%d\n\n", match);
 int run_lism = 0, run_tm = 0;
 
-for (z=1; z < 5; z++)
+for (z=1; z < 6; z++)
 {
+    //printf("\n\n%d\n%d\n\n",tot_len3, len3);
     len3 = arr_len3[z];
     for (i=0; i<len2; i++)
     {
@@ -56,6 +73,18 @@ for (z=1; z < 5; z++)
         truemat[i][1] = arr_truemat[tot_len3 + i][0];
         truemat[i][2] = arr_truemat[tot_len3 + i][1];
     }
+
+    
+    printf("\n");
+    //for (i=0; i<len1; i++)
+    //{
+     //   printf("%d %f %f\n", (int)prev1[i][0], prev1[i][1], prev1[i][2]);
+    //}
+    //printf("\n");
+    //for (i=0; i<len2; i++)
+    //{
+    //    printf("%d %f %f\n", (int)prev2[i][0], prev2[i][1], prev2[i][2]);
+    //}
 
     tot_len3 = tot_len3 + len3;
 

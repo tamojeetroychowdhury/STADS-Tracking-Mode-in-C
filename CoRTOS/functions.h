@@ -1483,18 +1483,20 @@ double truemat[40][2];
 
 i = 0;
 
+double prev1_new[40][3], prev2_new[40][3];
+
 for (i = 0; i <len1; i++){
     temp = prev1[i][0];
-    prev1[i][0] = prev1[i][1];
-    prev1[i][1] = prev1[i][2];
-    prev1[i][2] = temp;
+    prev1_new[i][0] = prev1[i][1];
+    prev1_new[i][1] = prev1[i][2];
+    prev1_new[i][2] = temp;
 }
 
 for (i = 0; i <len2; i++){
     temp = prev2[i][0];
-    prev2[i][0] = prev2[i][1];
-    prev2[i][1] = prev2[i][2];
-    prev2[i][2] = temp;
+    prev2_new[i][0] = prev2[i][1];
+    prev2_new[i][1] = prev2[i][2];
+    prev2_new[i][2] = temp;
 }
 
 i=0; temp = 0;
@@ -1517,7 +1519,7 @@ int common_in_both_prev;
  //printf("%f %f %d\n", prev1[i][0], prev1[i][1], (int)prev1[i][2]);
  //}
  //printf("%d %d\n", len1, len2);
-common_in_both_prev = sm_TM_CP_inputsort(prev1, len1, prev2, len2, p1, p2);
+common_in_both_prev = sm_TM_CP_inputsort(prev1_new, len1, prev2_new, len2, p1, p2);
 
 // for(i = 0; i < 20; i++){
 //printf("%f %f %d\n", p1[i][0], p1[i][1], (int)p1[i][2]);
@@ -1582,7 +1584,7 @@ prev1[i][1] = prev2[i][1];
 prev1[i][2] = prev2[i][2];}
 len1 = len2;
 */
-double sm_TM_unverified_output[40][3];
+//double sm_TM_unverified_output[40][3];
 
 for (i=0; i<num_RBM_matched; i++)
 {
@@ -1598,16 +1600,19 @@ sm_TM_unverified_output[i+num_RBM_matched][1] = snt_out[i][0];
 sm_TM_unverified_output[i+num_RBM_matched][2] = snt_out[i][1];
 }
 
-double sm_TM_verified_output[40][3];
-int num_TM_verified = verify(sm_TM_unverified_output, num_RBM_matched + num_SNT_matched, sm_TM_verified_output, e);
+//double sm_TM_verified_output[40][3];
+//int num_TM_verified = verify(sm_TM_unverified_output, num_RBM_matched + num_SNT_matched, sm_TM_verified_output, e);
+
+int total = num_RBM_matched + num_SNT_matched;
+for (i=0; i<total; i++)
+{
+    printf("%d %f %f\n", (int)sm_TM_unverified_output[i][0], sm_TM_unverified_output[i][1], sm_TM_unverified_output[i][2]);
+}
 
 
-//for (i=0; i<num_TM_verified; i++)
-//{
-//    printf("%d %f %f\n", (int)sm_TM_verified_output[i][0], sm_TM_verified_output[i][1], sm_TM_verified_output[i][2]);
-//}
+printf("%d\n\n", total);
 
-return num_RBM_matched + num_SNT_matched;
+return total;
 }
 }
 

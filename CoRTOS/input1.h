@@ -1689,20 +1689,7 @@ double arr_truemat[2000][2] =
 #include <stdio.h>
 #include <stdlib.h>
 
-int len1 = 26;
-int len2 = 24;
-int len3 = 23;
 
-double p1[40][3];
-double p2[40][3];
-int comm;
-double pred[40][3];
-double matchmat[40][3];
-
-double truemat[40][3];
-
-
-double snt_out[50][3], snt_match=0;
 
 
 
