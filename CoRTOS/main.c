@@ -29,9 +29,9 @@ int i = 0;
 int z=0;
 for (z=0; z<len3; z++)
 {
-truemat[z][0] = z;
-truemat[z][1] = arr_truemat[z][0];
-truemat[z][2] = arr_truemat[z][1];
+truemat[z][0] = arr_truemat[z][0];
+truemat[z][1] = arr_truemat[z][1];
+truemat[z][2] = arr_truemat[z][2];
 }
 
 
@@ -69,9 +69,9 @@ for (z=1; z < 6; z++)
 
     for (i=0; i<len3; i++)
     {
-        truemat[i][0] = i;
-        truemat[i][1] = arr_truemat[tot_len3 + i][0];
-        truemat[i][2] = arr_truemat[tot_len3 + i][1];
+        truemat[i][0] = arr_truemat[tot_len3 + i][0];
+        truemat[i][1] = arr_truemat[tot_len3 + i][1];
+        truemat[i][2] = arr_truemat[tot_len3 + i][2];
     }
 
     
